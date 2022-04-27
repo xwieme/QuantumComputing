@@ -92,7 +92,7 @@ def apply_sideband(pulse, sb_freq, dt):
   t_samples = np.linspace(0, dt*pulse.duration, pulse.duration)
   sine_pulse = np.sin(2*np.pi*sb_freq*t_samples)
  
-  sideband_pulse = SamplePulse(np.multiply(np.real(pulse.samples), sine_pulse), name='sideband_pulse')
+  sideband_pulse = SamplePulse(np.multiply(np.real(pulse.get_waveform().samples), sine_pulse), name='sideband_pulse')
 
   return sideband_pulse
 
